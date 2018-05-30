@@ -23,7 +23,7 @@
 // console.log(age);
 
 // Have to use let, as const can't be mutated
-let age = 32;
+// let age = 32;
 // age = undefined;
-age = null;
-console.log(age);
+// age = null;
+// console.log(age);
