@@ -34,6 +34,7 @@ const sortTodos = (todos) => {
     };
   });
 };
+
 sortTodos(todos)
 console.log(todos);
 
