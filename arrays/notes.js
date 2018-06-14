@@ -7,9 +7,37 @@ const notes = [{
   body: 'Exercise. Eating Healthier.'
 }, {
   title: 'New Monitor',
-  bod: 'Get another monitor'
+  body: 'Get another monitor'
 }];
 
+// const sortNotes = (notes) => {
+//   notes.sort((a, b) => {
+//     if(a.title.toLowerCase() < b.title.toLowerCase()) {
+//       return -1;
+//     } else if(b.title.toLowerCase() < a.title.toLowerCase()) {
+//       return 1;
+//     } else {
+//       return 0;
+//     }
+//   });
+// };
+
+// const findNotes = (notes, query) => {
+//   return notes.filter((note, index) => {
+//     const isTitleMatch = note.title.toLowerCase().includes(query.toLowerCase());
+//     const isBodyMatch = note.body.toLowerCase().includes(query.toLowerCase());
+//     return isTitleMatch || isBodyMatch
+//   });
+// }
+
+// console.log(findNotes(notes, 'Get'));
+
+// const filteredNotes = notes.filter((note, index) => {
+//   const isTitleMatch = note.title.toLowerCase().includes('ne')
+//   const isBodyMatch = note.body.toLowerCase().includes('ne')
+//   return isTitleMatch || isBodyMatch
+// });
+// console.log(filteredNotes);
 // const findNote = (notes, noteTitle) => {
 //   const index = notes.findIndex((note, index) => {
 //     return note.title.toLowerCase() === noteTitle.toLowerCase();
@@ -17,13 +45,13 @@ const notes = [{
 //   return notes[index];
 // };
 
-const findNote = (notes, noteTitle) => {
-  return notes.find((note, index) => {
-    return note.title.toLowerCase() === noteTitle.toLowerCase();
-  });
-};
+// const findNote = (notes, noteTitle) => {
+//   return notes.find((note, index) => {
+//     return note.title.toLowerCase() === noteTitle.toLowerCase();
+//   });
+// };
 
-console.log(findNote(notes, 'MY NEXT TRIP'));
+// console.log(findNote(notes, 'MY NEXT TRIP'));
 // notes.findIndex((note, index) => {
 //   console.log(note, index);
 // });

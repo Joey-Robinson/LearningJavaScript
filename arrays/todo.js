@@ -23,6 +23,27 @@ const todos = [{
   completed: false
 }];
 
+const sortTodos = (todos) => {
+  todos.sort((a, b) => {
+    if(!a.completed && b.completed) {
+      return -1;
+    } else if(!b.completed && a.completed) {
+      return 1;
+    } else {
+      return 0
+    };
+  });
+};
+sortTodos(todos)
+console.log(todos);
+
+// const findTodos = (todos,) => {
+//   return todos.filter((todo) => {
+//     return todo.completed === false
+//   });
+// };
+
+// console.log(findTodos(todos));
 // const findTodo = (todoList, todoBody) => {
 //   return todoList.find((todo, index) => {
 //     return todo.body.toLowerCase() === todoBody.toLowerCase();
@@ -31,17 +52,17 @@ const todos = [{
 
 // console.log(findTodo(todoList, 'Get Water'));
 
-const removeTodo = (todos, todoText) => {
-  const index = todos.findIndex((todo) => {
-    return todo.body.toLowerCase() === todoText.toLowerCase();
-  });
-  if(index > -1) {
-    todos.splice(index, 1)
-  }
-};
+// const removeTodo = (todos, todoText) => {
+//   const index = todos.findIndex((todo) => {
+//     return todo.body.toLowerCase() === todoText.toLowerCase();
+//   });
+//   if(index > -1) {
+//     todos.splice(index, 1)
+//   }
+// };
 
-removeTodo(todos, 'Get Coffee');
-console.log(todos);
+// removeTodo(todos, 'Get Coffee');
+// console.log(todos);
 
 // Delete Get Coffee
 // Add new item to end
