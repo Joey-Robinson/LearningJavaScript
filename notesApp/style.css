@@ -12,9 +12,10 @@ html {
 }
 
 body {
-  background: rgb(207, 202, 202);
+  background: rgb(211, 210, 210);
   font-weight: 300;
   line-height: 1.6;
+  font-size: 2.2rem;
 }
 
 h1 {
