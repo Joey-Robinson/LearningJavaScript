@@ -15,10 +15,24 @@ const todos = [{
   completed: false
 }];
 
-const paragraphs = document.querySelectorAll('p');
-paragraphs.forEach((paragraph) => {
+const incompleteTodos = todos.filter((todo) => {
+  return !todo.completed;
+});
+
+const summary = document.createElement('h3');
+summary.textContent = `You have ${incompleteTodos.length} todost left`
+document.querySelector('body').appendChild(summary);
+
+todos.forEach((todo) => {
+  const para = document.createElement('p');
+  para.textContent = todo.body;
+  document.querySelector('body').appendChild(para);
+});
+
+// const paragraphs = document.querySelectorAll('p');
+// paragraphs.forEach((paragraph) => {
   
-})
+// })
 // paragraphs.forEach((paragraph) => {
 //   if(paragraph.textContent.includes('The')) {
 //     paragraph.textContent = '';
