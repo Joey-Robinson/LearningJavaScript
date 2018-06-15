@@ -15,19 +15,24 @@ const todos = [{
   completed: false
 }];
 
-const incompleteTodos = todos.filter((todo) => {
-  return !todo.completed;
-});
+const createTodo = (event) => {
+  console.log('hi');
+}
+document.getElementById('createTodo').addEventListener('click', createTodo);
 
-const summary = document.createElement('h3');
-summary.textContent = `You have ${incompleteTodos.length} todost left`
-document.querySelector('body').appendChild(summary);
+// const incompleteTodos = todos.filter((todo) => {
+//   return !todo.completed;
+// });
 
-todos.forEach((todo) => {
-  const para = document.createElement('p');
-  para.textContent = todo.body;
-  document.querySelector('body').appendChild(para);
-});
+// const summary = document.createElement('h3');
+// summary.textContent = `You have ${incompleteTodos.length} todost left`
+// document.querySelector('body').appendChild(summary);
+
+// todos.forEach((todo) => {
+//   const para = document.createElement('p');
+//   para.textContent = todo.body;
+//   document.querySelector('body').appendChild(para);
+// });
 
 // const paragraphs = document.querySelectorAll('p');
 // paragraphs.forEach((paragraph) => {
