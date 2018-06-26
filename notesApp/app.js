@@ -36,6 +36,11 @@ document.getElementById('searchNotes').addEventListener('input', (event) => {
   renderNotes(notes, filters);
 });
 
+document.getElementById('nameForm').addEventListener('submit', (event) => {
+  event.preventDefault();
+  (event.target.elements.firstName.value)
+});
+
 
 // document.getElementById('removeAllNotes').addEventListener('click', () => {
 //   document.querySelectorAll('.note').forEach((note) => {

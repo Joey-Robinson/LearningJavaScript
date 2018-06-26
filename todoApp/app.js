@@ -1,6 +1,6 @@
 const todos = [{
   text: 'Get Coffee',
-  completed: false
+  completed: true
 }, {
   text: 'Finish Layout',
   completed: false
@@ -9,7 +9,7 @@ const todos = [{
   completed: false
 }, {
   text: 'Go For Walk',
-  completed: false
+  completed: true
 }, {
   text: 'Take Shower',
   completed: false
@@ -18,7 +18,7 @@ const todos = [{
   completed: false
 }, {
   text: 'Human Food',
-  completed: false
+  completed: true
 }];
 
 const filters = {
@@ -45,19 +45,28 @@ const renderTodos = (todos, filters) => {
 
 renderTodos(todos, filters);
 
-document.getElementById('createTodo').addEventListener('click', () => {
-  console.log('fugyeah');
-});
-
-document.getElementById('newTodo').addEventListener('click', (event) => {
-  event.target.value = ''
-});
-
 document.getElementById('searchTodos').addEventListener('input', (event) => {
   filters.searchText = event.target.value;
   renderTodos(todos, filters);
 });
 
+document.getElementById('newTodo').addEventListener('submit', (event) => {
+  event.preventDefault();
+  todos.push({
+    text: event.target.elements.text.value,
+    complete: false
+  });
+  renderTodos(todos, filters);
+  event.target.elements.text.value = '';
+});
+
+// document.getElementById('createTodo').addEventListener('click', () => {
+//   console.log('fugyeah');
+// });
+
+// document.getElementById('newTodo').addEventListener('click', (event) => {
+//   event.target.value = ''
+// });
 
 // Here I'm using forEach() to go over the paragraphs in the HTML document
 // I'm looking for the textContent. of each paragraph to see if any of them contain
