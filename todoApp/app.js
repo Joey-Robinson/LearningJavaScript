@@ -13,6 +13,12 @@ const todos = [{
 }, {
   text: 'Take Shower',
   completed: false
+}, {
+  text: 'Order Dog Food',
+  completed: false
+}, {
+  text: 'Human Food',
+  completed: false
 }];
 
 const filters = {
@@ -39,11 +45,11 @@ const renderTodos = (todos, filters) => {
 
 renderTodos(todos, filters);
 
-document.querySelector('#createTodo').addEventListener('click', () => {
+document.getElementById('createTodo').addEventListener('click', () => {
   console.log('fugyeah');
 });
 
-document.querySelector('#newTodo').addEventListener('click', (event) => {
+document.getElementById('newTodo').addEventListener('click', (event) => {
   event.target.value = ''
 });
 

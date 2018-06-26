@@ -17,30 +17,31 @@ const renderNotes = (notes, filters) => {
   const filteredNotes = notes.filter((note) => {
     return note.title.toLowerCase().includes(filters.searchText.toLowerCase());
   });
-  document.querySelector('#notes').innerHTML = '';
+  document.getElementById('notes').innerHTML = '';
   filteredNotes.forEach((note) => {
     const noteElement = document.createElement('p');
     noteElement.textContent = note.title;
-    document.querySelector('#notes').appendChild(noteElement);
+    document.getElementById('notes').appendChild(noteElement);
   })
 };
 
 renderNotes(notes, filters);
 
-document.querySelector('#createNote').addEventListener('click', (event) => {
+document.getElementById('createNote').addEventListener('click', (event) => {
   event.target.textContent = 'wew';
 });
 
-document.querySelector('#removeAllNotes').addEventListener('click', () => {
-  document.querySelectorAll('.note').forEach((note) => {
-    note.remove();
-  })
-});
-
-document.querySelector('#searchNotes').addEventListener('input', (event) => {
+document.getElementById('searchNotes').addEventListener('input', (event) => {
   filters.searchText = event.target.value;
   renderNotes(notes, filters);
 });
+
+
+// document.getElementById('removeAllNotes').addEventListener('click', () => {
+//   document.querySelectorAll('.note').forEach((note) => {
+//     note.remove();
+//   })
+// });
 
 
 
