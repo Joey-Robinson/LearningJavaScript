@@ -22,12 +22,23 @@ const todos = [{
 }];
 
 const filters = {
-  searchText: ''
+  searchText: '',
+  hideCompleted: false
 };
 
 const renderTodos = (todos, filters) => {
-  const filteredTodos = todos.filter((todo) => {
+  let filteredTodos = todos.filter((todo) => {
+    // const searchTextMatch = todo.text.toLowerCase().includes(filters.searchText.toLowerCase());
+    // const hideCompletedMatch = !filters.hideCompleted || !todos.completed;
+    // return searchTextMatch && hideCompletedMatch;
     return todo.text.toLowerCase().includes(filters.searchText.toLowerCase());
+  });
+  filteredTodos = filteredTodos.filter((todo) => {
+    if(filters.hideCompleted) {
+      return !todo.completed
+    } else {
+      return true
+    }
   });
   const incompleteTodos = filteredTodos.filter((todo) => {
     return !todo.completed;
@@ -59,6 +70,12 @@ document.getElementById('newTodo').addEventListener('submit', (event) => {
   renderTodos(todos, filters);
   event.target.elements.text.value = '';
 });
+
+document.getElementById('hideCompleted').addEventListener('change', (event) => {
+  filters.hideCompleted = event.target.checked;
+  renderTodos(todos, filters);
+});
+
 
 // document.getElementById('createTodo').addEventListener('click', () => {
 //   console.log('fugyeah');
