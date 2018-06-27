@@ -9,13 +9,14 @@
 </head>
 <body>
   <h1>hi</h1>
-  
   <input type="text" id="searchNotes" placeholder="Filter Notes">
+  <select id="filterBy">
+    <option value="byEdited">Sort by last edited</option>
+    <option vale="byCreated">Sort by newest</option>
+    <option value="byLetter">Sort alphabetically</option>
+  </select>
   <div id="notes"></div>
   <button id="createNote">Create Note</button>
-  <label for="fun">
-    <input id="fun" type="checkbox"> Check me for fun
-  </label>
   <script src="app.js"></script>
 </body>
 </html>

@@ -1,17 +1,14 @@
-const notes = [{
-  title: 'My next trip',
-  body: 'I would like to go to Spain'
-}, {
-  title: 'Habbits to work on',
-  body: 'Exercise. Eating Healthier.'
-}, {
-  title: 'New Monitor',
-  body: 'Get another monitor'
-}];
+let notes = [];
 
 const filters = {
   searchText: ''
 };
+
+const notesJSON = localStorage.getItem('notes');
+
+if(notesJSON !== null) {
+  notes = JSON.parse(notesJSON);
+}
 
 const renderNotes = (notes, filters) => {
   const filteredNotes = notes.filter((note) => {
@@ -20,15 +17,24 @@ const renderNotes = (notes, filters) => {
   document.getElementById('notes').innerHTML = '';
   filteredNotes.forEach((note) => {
     const noteElement = document.createElement('p');
-    noteElement.textContent = note.title;
+    if(note.title.length > 0) {
+      noteElement.textContent = note.title;
+    } else {
+      noteElement.textContent = 'No Named Note';
+    }
     document.getElementById('notes').appendChild(noteElement);
-  })
+  });
 };
 
 renderNotes(notes, filters);
 
 document.getElementById('createNote').addEventListener('click', (event) => {
-  event.target.textContent = 'wew';
+  notes.push({
+    title: '',
+    body: ''
+  });
+  localStorage.setItem('notes', JSON.stringify(notes));
+  renderNotes(notes, filters);
 });
 
 document.getElementById('searchNotes').addEventListener('input', (event) => {
@@ -36,18 +42,20 @@ document.getElementById('searchNotes').addEventListener('input', (event) => {
   renderNotes(notes, filters);
 });
 
-document.getElementById('fun').addEventListener('change', (event) => {
-  event.target.checked
+document.getElementById('filterBy').addEventListener('change', (event) => {
+  console.log(event.target.value);
 });
 
+
+// document.getElementById('fun').addEventListener('change', (event) => {
+//   event.target.checked
+// });
 
 // document.getElementById('removeAllNotes').addEventListener('click', () => {
 //   document.querySelectorAll('.note').forEach((note) => {
 //     note.remove();
 //   })
 // });
-
-
 
 // const paragraph = document.querySelectorAll('p');
 // paragraph.forEach((paragraphs) => {
