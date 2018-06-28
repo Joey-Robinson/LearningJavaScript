@@ -8,12 +8,17 @@ const getSavedNotes = () => {
 };
 
 const generateNote = (note) => {
-  const noteElement = document.createElement('p');
+  const noteElement = document.createElement('div');
+  const textElement = document.createElement('span');
+  const buttonElement = document.createElement('button');
+  buttonElement.textContent = 'x';
+  noteElement.appendChild(buttonElement);
   if(note.title.length > 0) {
-    noteElement.textContent = note.title;
+    textElement.textContent = note.title;
   } else {
-    noteElement.textContent = 'No Named Note';
+    textElement.textContent = 'No Named Note';
   }
+  noteElement.appendChild(textElement);
   return noteElement;
 };
 

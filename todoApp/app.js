@@ -1,38 +1,8 @@
-let todos = [];
+let todos = getSavedTodos();
 
 const filters = {
   searchText: '',
   hideCompleted: false
-};
-
-const todosJSON = localStorage.getItem('todos');
-if(todosJSON !== null) {
-  todos = JSON.parse(todosJSON);
-}
-
-const renderTodos = (todos, filters) => {
-  let filteredTodos = todos.filter((todo) => {
-    return todo.text.toLowerCase().includes(filters.searchText.toLowerCase());
-  });
-  filteredTodos = filteredTodos.filter((todo) => {
-    if(filters.hideCompleted) {
-      return !todo.completed
-    } else {
-      return true
-    }
-  });
-  const incompleteTodos = filteredTodos.filter((todo) => {
-    return !todo.completed;
-  });
-  document.getElementById('todos').innerHTML = '';
-  const summary = document.createElement('h2');
-  summary.textContent = `You have ${incompleteTodos.length} todos left`;
-  document.getElementById('todos').appendChild(summary);
-  filteredTodos.forEach((todo) => {
-    const paragraphs = document.createElement('p');
-    paragraphs.textContent = todo.text;
-    document.getElementById('todos').appendChild(paragraphs); 
-  });
 };
 
 renderTodos(todos, filters);
@@ -48,7 +18,7 @@ document.getElementById('newTodo').addEventListener('submit', (event) => {
     text: event.target.elements.text.value,
     complete: false
   });
-  localStorage.setItem('todos', JSON.stringify(todos));
+  saveTodos();
   renderTodos(todos, filters);
   event.target.elements.text.value = '';
 });
